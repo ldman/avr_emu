@@ -1,0 +1,72 @@
+﻿<Window x:Class="MCU_F.ComandPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Панель" Height="300" Width="450" Background="LightGray">    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Border BorderThickness="1" BorderBrush="Gray" Margin="5,10,0,0">
+            <TextBlock Grid.Column="0" Grid.Row="0" Width="200" Height="50" Name="CScreen" Background="DarkGreen" FontSize="21" Text="0123456789ABCDEF&#x0a;0123456789ABCDEF " FontFamily="Consolas" TextDecorations="{x:Null}"/>
+        </Border>
+        
+        <Grid Grid.Column="1" Grid.Row="0" Width="210" Height="30" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Name="bInt0" Content="INT0" Width="50" Margin="20,0,0,0" PreviewMouseLeftButtonDown ="bInt0_MouseDown" PreviewMouseLeftButtonUp="bInt0_MouseUp"/>
+            <Button Grid.Column="1" Name="bInt1" Content="INT1" Width="50" Margin="10,0,0,0" PreviewMouseLeftButtonDown ="bInt1_MouseDown" PreviewMouseLeftButtonUp="bInt1_MouseUp"/>
+            <Button Grid.Column="2" Name="bReset" Content="RST" Width="50" Margin="30,0,0,0" PreviewMouseLeftButtonDown ="bReset_MouseDown" PreviewMouseLeftButtonUp="bReset_MouseUp"/>
+        </Grid>
+        
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Padding="0,20,0,0" Margin="10,0,0,0" Grid.Row="0" Content="V: "/>
+            <Label Padding="0,20,0,0" Margin="24,0,0,0"  Grid.Row="0" Name="lPot" Content="{Binding ElementName=sPot, Path=Value}" FontWeight="Bold" FontSize="15" Foreground="Blue" ContentStringFormat="{}{0:N2}"/>
+            <Slider Padding="0,20,0,0" Margin="10,0,0,0" Grid.Row="1" Name="sPot" Width="100" HorizontalAlignment="Left" Maximum="5" ValueChanged="sPot_ValueChanged"/>
+        </Grid>
+        
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="Matrix_1_1" Grid.Column="0" Grid.Row="0" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="1"/>
+            <Button Name="Matrix_1_2" Grid.Column="0" Grid.Row="1" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="4"/>
+            <Button Name="Matrix_1_3" Grid.Column="0" Grid.Row="2" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="7"/>
+
+            <Button Name="Matrix_2_1" Grid.Column="1" Grid.Row="0" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="2"/>
+            <Button Name="Matrix_2_2" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="5"/>
+            <Button Name="Matrix_2_3" Grid.Column="1" Grid.Row="2" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="8"/>
+
+            <Button Name="Matrix_3_1" Grid.Column="2" Grid.Row="0" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="3"/>
+            <Button Name="Matrix_3_2" Grid.Column="2" Grid.Row="1" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="6"/>
+            <Button Name="Matrix_3_3" Grid.Column="2" Grid.Row="2" Width="50" Height="35" Margin="5,5,0,0" PreviewMouseLeftButtonDown="Matrix_MouseDown" PreviewMouseLeftButtonUp="Matrix_MouseUp" Content="9"/>
+        </Grid>
+        
+    </Grid>
+</Window>

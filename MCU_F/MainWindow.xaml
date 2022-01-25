@@ -1,0 +1,62 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MCU_F" x:Class="MCU_F.MainWindow"
+        Title="MCU F" Height="600" Width="800" ResizeMode="NoResize">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuColorKey}}"/>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBarPanel Grid.Row="0" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="794"/>
+        <TabControl Grid.Row="1" Margin="10,2,10,8" >
+            <TabItem Header="Обзор МК">
+                <Grid>
+                    <Button x:Name="programHexBtn" Content="Загрузить hex" HorizontalAlignment="Left" Click="programHexBtn_Click" Margin="657,12,0,0" VerticalAlignment="Top" Width="96" Height="25"/>
+                    <Button x:Name="mcuRunBtn" Content="Run" HorizontalAlignment="Left" Margin="614,12,0,0" VerticalAlignment="Top" Width="38" Height="25" Click="mcuRunBtn_Click" />
+                    <Button x:Name="mcuStepBtn" Content="Step" HorizontalAlignment="Left" Margin="559,12,0,0" VerticalAlignment="Top" Width="50" Height="25" Click="mcuStepBtn_Click"  />
+                    <Button x:Name="mcuStopBtn" Content="Stop" HorizontalAlignment="Left" Margin="510,12,0,0" VerticalAlignment="Top" Width="44" Height="25" Click="mcuStopBtn_Click"  />
+                    <ListBox x:Name="programMemoryView" HorizontalAlignment="Left" Height="460" Margin="10,25,0,0" VerticalAlignment="Top" Width="186">
+                        <ListBox.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Blue" />
+                        </ListBox.Resources>
+                    </ListBox>
+                    <ListBox x:Name="fileRegistersView" Margin="222,25,390,13">
+                        <ListBox.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Blue" />
+                        </ListBox.Resources>
+                    </ListBox>
+                    <Label Content="Программная память" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="266"/>
+                    <Label Content="Файловые регистры" HorizontalAlignment="Left" Margin="224,-1,0,0" VerticalAlignment="Top" Width="195"/>
+                    <Label x:Name="totalProgLoaded" Content="Label" Margin="603,297,15,138"/>
+                    <TextBlock x:Name="generalRegisters" HorizontalAlignment="Left" Margin="510,42,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="250" Width="243"/>
+                    <TextBlock x:Name="portStatus" TextWrapping="Wrap" Width="100" Margin="405,42,263,196"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Настройки МК">
+                <Grid>
+                    <GroupBox Header="Тактовая частота МК" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="180" Margin="10,0,0,0">
+                        <Grid Margin="2,0,-2,0">
+                            <Label Content="Hz" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="mcuMHz" HorizontalAlignment="Left" Height="20" Margin="50,12,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Button x:Name="setMCUButton" Content="УСТ" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.413,0.455" Click="setMCUButton_Click"/>
+                        </Grid>
+                    </GroupBox>
+                    <Grid Margin="195,0,0,405">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderThickness="2" Margin="0,0,0,-25">
+                            <Label Grid.Row="0" x:Name="coreInfoLabel" Content="Test" FontSize="14" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Margin="0,0,0,-25" />
+                        </Border>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
